@@ -1,36 +1,30 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using DataAccess.Concrete.EntityFramework;
 
-namespace Console
+using System;
+
+namespace ConsoleUI
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
 
-            CarTest();
-
-            //CarManager carManager = new CarManager(new InMemoryCarDal());
-
-            //foreach (var cars in carManager.GetAll())
-            //{
-            //    System.Console.WriteLine("ARAÇ BİLGİLERİ : " + " " + cars.Description);
-            //    System.Console.WriteLine("MODEL YILI : " + " " + cars.ModelYear);
-            //    System.Console.WriteLine("GÜNLÜK FİYATI : " + " " + cars.DailyPrice);
+            //    CarManager carManager = new CarManager(new EfCarDal());
+            //    foreach (var car in carManager.GetCarDetails())
+            //    {
+            //        Console.WriteLine(car.CarId + "/" + car.BrandName + "/" + car.ColorName);
+            //    }
             //}
-
-
         }
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetAll())
             {
-                System.Console.WriteLine(car.CarName + "/" + car.BrandName);
+                Console.WriteLine(car.Description);
             }
         }
     }
